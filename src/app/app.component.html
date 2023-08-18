@@ -1,0 +1,11 @@
+<body>
+<div>
+    <!-- <h1>Add customers</h1> -->
+    <app-registration-form (customerAdded)="getData($event)"></app-registration-form>
+</div>
+
+<div>
+    <!-- <h1>View customers</h1> -->
+    <app-admin [customers] = "customers"></app-admin>
+</div>
+</body>
