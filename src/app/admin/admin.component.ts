@@ -17,7 +17,5 @@ export class AdminComponent implements OnInit {
   }
 
   @Input() customers: UserProfile[]=[]
-  
-
 
 }

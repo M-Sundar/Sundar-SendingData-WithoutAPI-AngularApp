@@ -10,8 +10,6 @@ import { UserProfile } from '../userprofile.model';
 export class RegistrationFormComponent implements OnInit {
 
   title = "Add Customers";
-  hide = true;
-
 
     customers: UserProfile[]=[]
 
@@ -22,7 +20,7 @@ export class RegistrationFormComponent implements OnInit {
     constructor(private rf: FormBuilder){
       this.regForm = this.rf.group({
         name: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]),
-        age: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(3),  Validators.pattern('[0-9]*')]),
+        age: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(3), Validators.pattern('[0-9]*')]),
         color: new FormControl('', [Validators.required]),
       })
     }
