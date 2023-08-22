@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserProfile } from '../userprofile.model';
+import { CustomerService } from '../customer.service';
 
 @Component({
   selector: 'app-registration-form',
@@ -17,7 +18,7 @@ export class RegistrationFormComponent implements OnInit {
 
     public regForm!: FormGroup;
 
-    constructor(private rf: FormBuilder){
+    constructor(private rf: FormBuilder, private service: CustomerService){
       this.regForm = this.rf.group({
         name: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]),
         age: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(3), Validators.pattern('[0-9]*')]),
@@ -39,6 +40,7 @@ export class RegistrationFormComponent implements OnInit {
         this.customers.push(customer);
         this.customerAdded.emit(this.customers);
         this.regForm.reset(true);
+        this.service.openSnackBar('Customer added successfully');
       }
     }
 
