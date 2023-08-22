@@ -4,5 +4,6 @@ Run "npm install". Sending data to another component in a table format without A
 - Decorators
 - Data Binding
 - Reactive Form
+- Services
 - Angular material
 - String Interpolation
